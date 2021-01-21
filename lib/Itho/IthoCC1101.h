@@ -110,6 +110,7 @@ class IthoCC1101 : protected CC1101
 		bool checkID(const uint8_t *id);
 		String getLastIDstr(bool ashex=true);
 		String getLastMessage2str(bool ashex=true);
+		String getLastMessageCMD2str();
 
 		//send
 		void sendCommand(IthoCommand command);
