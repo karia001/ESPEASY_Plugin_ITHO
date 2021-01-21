@@ -999,6 +999,20 @@ String IthoCC1101::getLastIDstr(bool ashex) {
 	}
 	return str;
 }
+
+String IthoCC1101::getLastMessage2CMDstr() {
+  int startPos = 18;
+  int endPos = startPos + 15;
+  String str = "len=" + String(inMessage2.length) + " / cmd:";
+  for (uint8_t i = 0; i < inMessage2.length; i++) {
+    if (i == startPos) str += String(inMessage2.data[i] & B00001111) + ",";
+    if (i > (startPos + 1) && i < endPos) {
+      str += String(inMessage2.data[i]);
+      if (i < endPos - 1) str += ",";
+    }
+  }
+  return str;
+}
 /* Function currently not in use
 String IthoCC1101::getLastMessage2str(bool ashex) {
     String str = "Length="+ String(inMessage2.length) + ".";
